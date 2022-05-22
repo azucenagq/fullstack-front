@@ -1,8 +1,6 @@
 hola mundo
 
-como estan todos?
+actualizacion 2 desde visual studio
 
-actualizacion 3 desde visual studio
-
-actualización 4 desde github
+actualización 3 desde github
 
