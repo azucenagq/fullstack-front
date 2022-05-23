@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width-device-width, initial-scale=1,0">
+
+  <!--link stylesheet -->
+  <link rel="stylesheet" href="/MICRO ACTIVIDAD/css/stylesheet.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <title>Micro actividad</title>
+
+</head>
+
+
+<body id="body" onload="manejaDOM();">
+
+
+
+  <main>
+    <img id="logo" style="width:200px;" src="/MICRO ACTIVIDAD/images/logo_pizza.jpeg">
+    <h1 id="main_title">PizzasFull Stack</h1>
+
+
+    <!--Empieza formulario-->
+    <div>
+      <form class="formulario" id="formulario" name="formulario" method="post" action="http://localhost:8880/pizza"
+        onsubmit="return validateForm()">
+
+        <h2 class="secondary_title">Datos del cliente</h2>
+        <p>Completa los siguientes datos, para poder generar tu pedido.</p>
+
+
+        <!--EMPIEZA SECCION DE DATOS DEL CLIENTE-->
+
+        <section id="datos_cliente">
+
+
+          <!--input de nombre-->
+          <div class="formulario__grupo" class = "formulario__grupo-correcto" id="grupo__nombre">
+            <label class="formulario__label" id="nombre_label" for="nombre">- Nombre del cliente</label>
+            <div class="formulario__grupo-input">
+              <input type="text" class="formulario__input" id="nombre" name="nombre" />
+              <i id="formulario__validacion-estado" class="glyphicon glyphicon-remove"></i>
+            </div>
+            <p class="formulario__input-error">El nombre solo puede contener letras</p>
+          </div>
+
+
+          <!--input de apellidos-->
+          <div class="formulario__grupo" class="formulario__grupo-correcto" id="grupo__apellidos">
+            <label class="formulario__label" id="apellidos_label" for="apellidos">- apellidos</label>
+            <div class="formulario__grupo-input">
+              <input type="text" class="formulario__input" id="apellidos" name="apellidos" />
+              <i id="formulario__validacion-estado" class="glyphicon glyphicon-remove"></i>
+            </div>
+            <p class="formulario__input-error">El apellido solo puede contener letras</p>
+          </div>
+
+
+          <!--input de fecha de nacimiento-->
+          <div class="formulario__grupo" class="formulario__grupo-correcto" id="grupo__fecha_nacimiento">
+            <label class="formulario_label" id="fecha_nacimiento_label" for="fecha_nacimiento">- Fecha de
+              nacimiento</label>
+            <div class="formulario__grupo-input">
+              <input type="text" class="formulario__input" id="fecha_nacimiento_input" name="fecha_nacimiento" />
+              <i id="formulario__validacion-estado" class="glyphicon glyphicon-remove"></i>
+            </div>
+            <p class="formulario__input-error">La fecha sólo puede contente números</p>
+          </div>
+
+
+          <!--input de telefono-->
+          <div class="formulario__grupo" class="formulario__grupo-correcto" id="grupo__telefono">
+            <label class="formulario__label" id="telefono_label" for="telefono">- teléfono</label>
+            <div class="formulario__grupo-input">
+              <input class="formulario__input" type="text" id="telefono_input" name="telefono" />
+              <i id="formulario__validacion-estado" class="glyphicon glyphicon-remove"></i>
+            </div>
+            <p class="formulario__input-error">El teéfono solo puede contener números</p>
+          </div>
+
+          <!--input de direccion postal-->
+          <div class="formulario__grupo" class="formulario__grupo-correcto" id="grupo__direccion_postal">
+            <label class="formulario__label" id="direccion_postal_label" for="direccion_postal">- dirección
+              postal</label>
+            <div class="formulario__grupo-input">
+              <input class="formulario__input" type="text" id="direccion_postal" name="direccion_postal" />
+              <i id="formulario__validacion-estado" class="glyphicon glyphicon-remove"></i>
+            </div>
+            <p class="formulario__input-error">la dirección postal solo puede contener números y letras</p>
+          </div>
+
+        </section>
+        <!--TERMINA SECCION DE DATOS DEL CLIENTE-->
+
+
+
+
+        <!--Empieza elegir especificaciones de pizza-->
+        <h2 class="secondary_title">Elige tu pizza</h2>
+        <!--EMPIEZA SECCION DE ELEGIR CARACTERISTICAS DE PIZZA-->
+        <section id="caracteristicas_pizza">
+          <div>
+            <p>1. Elige el tamaño:</p>
+            <select id="Tamaño">
+              <option id="chica">Chica</option>
+              <option id="mediana">Mediana</option>
+              <option id="grande">Grande</option>
+            </select>
+          </div>
+
+          <!--ingredientes-->
+
+          <p>2. Elige los ingredientes a tu antojo (Hasta 5 ingredientes):</p>
+
+          <div>
+            <label for="jamon_jork">Jamón jork</label>
+            <input class="checkbox" type="checkbox" id="jamon_jork" name="jamon_jork">
+          </div>
+
+          <div>
+            <label for="champiñones">champiñones</label>
+            <input class="checkbox" type="checkbox" id="champiñones" name="champiñones">
+          </div>
+
+          <div>
+            <label for="Pepperoni">Pepperoni</label>
+            <input class="checkbox" type="checkbox" id="Pepperoni" name="Pepperoni">
+          </div>
+
+          <div>
+            <label for="Aceitunas">Aceitunas</label>
+            <input class="checkbox" type="checkbox" id="Aceitunas" name="Aceitunas">
+          </div>
+
+        </section>
+
+
+
+
+        <div class="formulario__mensaje" id="formulario__mensaje">
+          <p>
+            <b>Error:</b> Por favor rellena el formulario correctamente.
+          </p>
+        </div>
+
+        <!--termina elegir especificaciones de pizza-->
+
+        <div class="formulario__grupo formulario__grupo-btn-enviar">
+          <button class="formulario__btn" id="submit" type="submit" value="submit" name="submit">Enviar</button>
+          <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+        </div>
+      </form>
+    </div>
+
+
+
+
+<h4>{{nombre}}</h4>
+<h4>{{apellido}}</h4>
+
+
+    <!--termina formulario-->
+
+  </main>
+</body>
+
+<script src="/MICRO ACTIVIDAD/js/script.js"></script>
+
+</html>
+
